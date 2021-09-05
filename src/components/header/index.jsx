@@ -10,6 +10,10 @@ const useStyles = makeStyles({
   skull: {
     marginRight: "0.8rem",
   },
+  slash: {
+    marginLeft: "0.3rem",
+    marginRight: "0.3rem",
+  },
 });
 
 function Header() {
@@ -23,21 +27,26 @@ function Header() {
       <Typography color="primary" variant="h3">
         HeroQuest Online
       </Typography>
-      <Link className="nolink">
-        <Badge
-          className={classes.skull}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "left",
-          }}
-          color="primary"
-          badgeContent=" "
-          variant="dot"
-        >
-          <Avatar alt="" src={Skull}></Avatar>
-        </Badge>
-        <Typography color="primary">Inicia sesión</Typography>
-      </Link>
+      <div className="login-register">
+        <Link to="/login" className="nolink">
+          {/* <Badge
+            className={classes.skull}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+            color="success"
+            badgeContent=" "
+            variant="dot"
+          >
+            <Avatar alt="" src={Skull}></Avatar>
+          </Badge> */}
+          <Typography color="primary" variant="body2">Inicia sesión</Typography>
+        </Link>
+        <Link to="/register" className="nolink">
+          <Typography color="primary" variant="body2">Regístrate</Typography>
+        </Link>
+      </div>
     </div>
   );
 }
