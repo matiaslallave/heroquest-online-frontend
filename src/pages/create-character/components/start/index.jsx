@@ -20,7 +20,7 @@ function Start(props) {
   }
 
   return (
-        <div className={classes.bodyContainer}>
+        <React.Fragment>
           <Grid container>
             <Grid item xs={12} sm={12} lg={12} align="center">
               <Typography
@@ -71,7 +71,7 @@ function Start(props) {
               </Button>
             </Grid>
           </Grid>
-        </div>
+          </React.Fragment>
   );
 }
 

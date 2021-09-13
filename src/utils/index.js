@@ -1,0 +1,1 @@
+export const SERVER_URL_AUTH = "http://localhost:4567";
