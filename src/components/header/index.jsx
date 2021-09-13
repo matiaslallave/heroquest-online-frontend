@@ -1,53 +1,37 @@
-import { Typography, Avatar, Badge } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { Typography} from "@material-ui/core";
 import React from "react";
 import Logo from "../../assets/hqologo.png";
 import "./style.css";
 import { Link } from "react-router-dom";
-import Skull from "../../assets/blckskull.jpg";
+import { useAuth } from "../../hooks/index.js";
+import LoginBadge from "./components/loginBadge";
+import AccessMenu from "./components/accessMenu";
+import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
-  skull: {
-    marginRight: "0.8rem",
-  },
-  slash: {
-    marginLeft: "0.3rem",
-    marginRight: "0.3rem",
-  },
-});
+    center: {
+        justifyContent: "center",
+    },
+  });
 
 function Header() {
-  const classes = useStyles();
+
+    const classes = useStyles();
+
+  const sessionActive = useAuth();
 
   return (
-    <div className="header">
+    <header className="header">
       <Link to="/">
         <img src={Logo} alt="" className="logo"></img>
       </Link>
-      <Typography color="primary" variant="h3">
+      <Typography color="primary" variant="h1" className={classes.center}>
         HeroQuest Online
       </Typography>
       <div className="login-register">
-        <Link to="/login" className="nolink">
-          {/* <Badge
-            className={classes.skull}
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "left",
-            }}
-            color="success"
-            badgeContent=" "
-            variant="dot"
-          >
-            <Avatar alt="" src={Skull}></Avatar>
-          </Badge> */}
-          <Typography color="primary" variant="body2">Inicia sesión</Typography>
-        </Link>
-        <Link to="/register" className="nolink">
-          <Typography color="primary" variant="body2">Regístrate</Typography>
-        </Link>
+        {sessionActive ? <LoginBadge></LoginBadge> : <AccessMenu></AccessMenu>}
       </div>
-    </div>
+    </header>
   );
 }
 
