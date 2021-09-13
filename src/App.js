@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import Home from "./pages/home";
+import { ThemeProvider } from "@material-ui/core/styles";
+import { baseTheme } from "./themes/themes.js";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Register from "./pages/register";
+import Login from "./pages/login";
+import ValidateEmail from "./pages/validate_email";
+import CreateCharacter from "./pages/create-character";
+import CharacterResume from "./pages/character-resume";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={baseTheme}>
+      <Router>
+        <Switch>
+          <Route path="/register">
+            <Register></Register>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="/validate_email">
+            <ValidateEmail></ValidateEmail>
+          </Route>
+          <Route path="/create_character">
+            <CreateCharacter></CreateCharacter>
+          </Route>
+          <Route path="/character_resume">
+            <CharacterResume></CharacterResume>
+          </Route>
+          <Route path="/">
+            <Home></Home>
+          </Route>
+        </Switch>
+      </Router>
+    </ThemeProvider>
   );
 }
 
