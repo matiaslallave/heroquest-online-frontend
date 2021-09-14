@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
   baseTextBlock: {
     backgroundColor:"rgba(0, 0, 0, 0.4)",
     display:"flex",
-    padding:"1.5rem",
+    padding:"0.5rem",
     alignItems:"center",
     margin:"3rem",
     justifyContent: "center",

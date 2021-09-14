@@ -23,7 +23,7 @@ function Body(props) {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${sessionStorage.getItem("sessionToken")}`,
+        "Authorization": `Bearer ${sessionStorage.getItem("sessionToken")}`,
       },
       body: JSON.stringify({ character: props.character }),
     };
