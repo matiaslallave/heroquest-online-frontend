@@ -9,6 +9,7 @@ import Login from "./pages/login";
 import ValidateEmail from "./pages/validate_email";
 import CreateCharacter from "./pages/create-character";
 import CharacterResume from "./pages/character-resume";
+import CreateGame from "./pages/create_game";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/create_character">
             <CreateCharacter></CreateCharacter>
+          </Route>
+          <Route path="/create_game">
+            <CreateGame></CreateGame>
           </Route>
           <Route path="/character_resume">
             <CharacterResume></CharacterResume>

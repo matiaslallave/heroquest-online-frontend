@@ -2,10 +2,10 @@ import React from "react";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import Body from "./components/body";
-import { useStyles } from "./style.js";
+import { useStyles } from "./style";
 
-function CreateCharacter() {
-  const classes = useStyles();
+function CreateGame() {
+    const classes = useStyles()
 
   return (
     <div className={classes.container}>
@@ -16,4 +16,4 @@ function CreateCharacter() {
   );
 }
 
-export default CreateCharacter;
+export default CreateGame;

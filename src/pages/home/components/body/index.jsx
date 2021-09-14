@@ -15,7 +15,7 @@ function Body() {
             size="large"
             className={classes.buttonHome}
           >
-            <Typography variant="h3" >Crear personaje</Typography>
+            <Typography variant="h3">Create character</Typography>
           </Button>
         </Link>
       </Grid>
@@ -26,18 +26,20 @@ function Body() {
           size="large"
           className={classes.buttonHome}
         >
-          <Typography variant="h3">Unirse a partida</Typography>
+          <Typography variant="h3">Join game</Typography>
         </Button>
       </Grid>
       <Grid item xs={12} sm={12} lg={6} align="center">
+      <Link to="/create_game" className={classes.linkButtonHome}>
         <Button
           color="primary"
           variant="contained"
           size="large"
           className={classes.buttonHome}
         >
-          <Typography variant="h3">Crear partida</Typography>
+          <Typography variant="h3">Create Game</Typography>
         </Button>
+        </Link>
       </Grid>
     </Grid>
   );

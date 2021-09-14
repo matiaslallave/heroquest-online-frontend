@@ -1,6 +1,6 @@
 import { Grid, Typography, Button } from "@material-ui/core";
-import StdCard from "../../../../components/std-card";
-import CustomHero from "../../../../assets/custom.jpg";
+import StdCard from "../../../../../components/std-card";
+import CustomHero from "../../../../../assets/custom.jpg";
 import { useStyles } from "./style";
 import React from "react";
 
