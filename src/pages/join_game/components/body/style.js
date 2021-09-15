@@ -31,11 +31,5 @@ export const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
-    justifyContent: "center"
-  },
-  formSubCont: {
-    display: "flex",
-    flexDirection: "column",
-    flexWrap: "wrap",
   },
 });

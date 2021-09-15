@@ -1,34 +1,29 @@
-import { Typography} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import React from "react";
 import Logo from "../../assets/hqologo.png";
-import "./style.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/index.js";
 import LoginBadge from "./components/loginBadge";
 import AccessMenu from "./components/accessMenu";
-import { makeStyles } from "@material-ui/styles";
-
-const useStyles = makeStyles({
-    center: {
-        justifyContent: "center",
-    },
-  });
+import { useStyles } from "./style";
 
 function Header() {
-
-    const classes = useStyles();
+  const classes = useStyles();
 
   const sessionActive = useAuth();
 
   return (
-    <header className="header">
+    <header className={classes.header}>
       <Link to="/">
-        <img src={Logo} alt="" className="logo"></img>
+        <img src={Logo} alt="" className={classes.logo}></img>
       </Link>
-      <Typography color="primary" variant="h1" className={classes.center}>
+      <Typography color="primary" variant="h1" className={classes.title}>
         HeroQuest Online
       </Typography>
-      <div className="login-register">
+      <Typography color="primary" variant="h1" className={classes.titleSM}>
+        HQO
+      </Typography>
+      <div className={classes.loginRegister}>
         {sessionActive ? <LoginBadge></LoginBadge> : <AccessMenu></AccessMenu>}
       </div>
     </header>

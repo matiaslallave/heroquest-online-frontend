@@ -20,6 +20,7 @@ function Body() {
         </Link>
       </Grid>
       <Grid item xs={12} sm={12} lg={6} align="center">
+      <Link to="/join_game" className={classes.linkButtonHome}>
         <Button
           color="primary"
           variant="contained"
@@ -28,6 +29,7 @@ function Body() {
         >
           <Typography variant="h3">Join game</Typography>
         </Button>
+        </Link>
       </Grid>
       <Grid item xs={12} sm={12} lg={6} align="center">
       <Link to="/create_game" className={classes.linkButtonHome}>

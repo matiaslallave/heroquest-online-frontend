@@ -10,6 +10,7 @@ import ValidateEmail from "./pages/validate_email";
 import CreateCharacter from "./pages/create-character";
 import CharacterResume from "./pages/character-resume";
 import CreateGame from "./pages/create_game";
+import JoinGame from "./pages/join_game";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/character_resume">
             <CharacterResume></CharacterResume>
+          </Route>
+          <Route path="/join_game">
+            <JoinGame></JoinGame>
           </Route>
           <Route path="/">
             <Home></Home>
