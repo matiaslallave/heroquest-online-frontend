@@ -7,7 +7,6 @@
 @font-face {
   font-family: Exocet;
   src: url("../src/assets/films.EXL_____.ttf");
-  
 }
 
 @font-face {
@@ -16,3 +15,7 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: Ringbearer;
+  src: url("../src/assets/RINGM___.TTF");
+}

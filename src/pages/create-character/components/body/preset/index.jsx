@@ -5,6 +5,8 @@ import React from "react";
 import { useHistory } from "react-router";
 import { useEffect, useState } from "react";
 import { SERVER_URL_AUTH } from "../../../../../utils";
+import {useTranslation} from "react-i18next"
+
 
 function Preset(props) {
   const [isLoading, setLoading] = useState(true);
@@ -21,6 +23,8 @@ function Preset(props) {
     history.push(`/character_resume`);
   };
 
+  const [t] = useTranslation("global");
+
   useEffect(() => {
     fetch(`http://localhost:4567/character/preset/`)
       .then((r) => r.json())
@@ -35,7 +39,7 @@ function Preset(props) {
       {isLoading ? (
         <Grid item xs={12} sm={12} lg={12} align="center">
           <Typography color="primary" variant="h2" align="center">
-            Loading...
+            {t("create-char-preset.loading")}
           </Typography>
         </Grid>
       ) : (
@@ -50,7 +54,7 @@ function Preset(props) {
               className={classes.margin}
             >
               <Typography variant="h3" color="primary">
-                Create character / Preset
+              {t("create-char-preset.title")}
               </Typography>
             </Grid>
             <Grid container>
@@ -79,7 +83,7 @@ function Preset(props) {
                   className={classes.margin}
                   onClick={handleClickBack}
                 >
-                  <Typography variant="h5">Back</Typography>
+                  <Typography variant="h5">{t("create-char-preset.bttnback")}</Typography>
                 </Button>
               </Grid>
             </Grid>

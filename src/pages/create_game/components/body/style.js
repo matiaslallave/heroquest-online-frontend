@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core";
+import { Height } from "@material-ui/icons";
 
 export const useStyles = makeStyles({
   margin: {
@@ -38,4 +39,26 @@ export const useStyles = makeStyles({
     flexDirection: "column",
     flexWrap: "wrap",
   },
+  inputFormat: {
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    margin: "2rem"
+  },
+  fileImg: {
+    width:"150px",
+    height: "100px",
+    borderRadius: "7px",
+    margin: "1rem"
+  },
+  marginInput: {
+    margin: "1rem"
+  },
+  radioBlock: {
+    display: "flex",
+    flexWrap: "wrap",
+    flexDirection: "column",
+    alignItems: "center"
+  }
 });

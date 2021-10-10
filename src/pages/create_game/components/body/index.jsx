@@ -1,16 +1,34 @@
-import { Button, Grid, Paper, TextField, Typography } from "@material-ui/core";
+import {
+  Button,
+  Grid,
+  Input,
+  Paper,
+  TextField,
+  Typography,
+  InputLabel,
+  FormControl,
+  FormLabel,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+} from "@material-ui/core";
 import { useState } from "react";
 import { useStyles } from "./style";
 import { useHistory } from "react-router";
+import PublishIcon from "@material-ui/icons/Publish";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 function Body() {
   const classes = useStyles();
   const history = useHistory();
-
+  const [t] = useTranslation("global");
   const numPlayersArr = [1, 2, 3, 4];
-
   const [numPlayers, setNumPlayers] = useState(1);
   const [blankError, setBlankError] = useState(false);
+  const [fileName, setFileName] = useState("No file selected");
+  const [fileImg, setFileImg] = useState();
+  const [radioValue, setRadioValue] = useState("default");
 
   const handleChange = (e) => {
     setNumPlayers(e.target.value);
@@ -24,16 +42,13 @@ function Body() {
     e.preventDefault();
 
     if (e.target.checkValidity()) {
+      console.log(e.target);
       const options = {
         method: "POST",
         headers: {
-          "Content-type": "application/json",
           Authorization: `Bearer ${sessionStorage.getItem("sessionToken")}`,
         },
-        body: JSON.stringify({
-          gameName: e.target.gameName.value,
-          maxPlayers: e.target.maxPlayers.value,
-        }),
+        body: new FormData(e.target),
       };
       fetch("http://localhost:4567/game", options).then((r) => {
         r.status === 200 ? console.log("ok") : console.log("KO");
@@ -41,108 +56,27 @@ function Body() {
     } else {
       setBlankError(true);
     }
-
-    console.log(e);
   };
 
   const handleGameNameChange = (e) => {
     if (e.target.value.length > 0) setBlankError(false);
   };
 
+  const handleFileChange = (e) => {
+    setFileName(e.target.files[0].name);
+    setFileImg(URL.createObjectURL(e.target.files[0]));
+  };
+
+  const handleRadioChange = (e) => {
+    setRadioValue(e.target.value);
+  };
+
   return (
-    // <Paper elevation={3} className={classes.baseTextBlock}>
-    //   <Grid container justifyContent="center" alignContent="center">
-    //     <Grid item xs={12} sm={12} lg={12} align="center">
-    //       <Typography variant="h3" color="primary" className={classes.margin}>
-    //         Create Game
-    //       </Typography>
-    //     </Grid>
-    //     <Grid
-    //       container
-    //       item
-    //       xs={12}
-    //       sm={9}
-    //       lg={9}
-    //       alignItems="center"
-    //       justifyContent="center"
-    //       className={classes.formBackgr}
-    //     >
-    //       <Grid item xs={12} sm={6} lg={4}>
-    //         <Typography
-    //           variant="h5"
-    //           color="secondary"
-    //           className={classes.margin}
-    //         >
-    //           Choose options:
-    //         </Typography>
-    //       </Grid>
-
-    //       <form onSubmit={handleGameSubmit}>
-    //         <Grid item xs={12} sm={6} lg={4}>
-    //           <TextField
-    //             name="gameName"
-    //             label="Game name"
-    //             color="secondary"
-    //             type="text"
-    //             variant="outlined"
-    //             className={classes.margin}
-    //           ></TextField>
-    //           <TextField
-    //             name="maxPlayers"
-    //             select
-    //             label="Max. number of players"
-    //             color="secondary"
-    //             value={numPlayers}
-    //             onChange={handleChange}
-    //             SelectProps={{
-    //               native: true,
-    //             }}
-    //             helperText="Warning: You cannot change this value once the game starts"
-    //             variant="outlined"
-    //             className={classes.margin}
-    //           >
-    //             {numPlayersArr.map((option) => (
-    //               <option key={option} value={option}>
-    //                 {option}
-    //               </option>
-    //             ))}
-    //           </TextField>
-    //           <Button
-    //             type="submit"
-    //             variant="contained"
-    //             color="primary"
-    //             className={classes.margin}
-    //           >
-    //             Submit game
-    //           </Button>
-    //         </Grid>
-    //       </form>
-    //     </Grid>
-    //     <Grid
-    //       item
-    //       xs={12}
-    //       sm={12}
-    //       lg={12}
-    //       align="center"
-    //       className={classes.margin}
-    //     >
-    //       <Button
-    //         color="secondary"
-    //         variant="contained"
-    //         size="large"
-    //         onClick={handleClickBack}
-    //       >
-    //         <Typography variant="h5">Back</Typography>
-    //       </Button>
-    //     </Grid>
-    //   </Grid>
-    // </Paper>
-
     <Paper elevation={3} className={classes.baseTextBlock}>
       <Grid container justifyContent="center" alignContent="center">
         <Grid item xs={12} align="center" className={classes.margin}>
           <Typography variant="h3" color="primary">
-            Create Game
+            {t("create-game.title")}
           </Typography>
         </Grid>
         <div className={classes.formBackgr}>
@@ -151,7 +85,7 @@ function Body() {
             color="secondary"
             className={classes.marginForm}
           >
-            Choose options:
+            {t("create-game.opt")}
           </Typography>
           <form
             onSubmit={handleGameSubmit}
@@ -163,26 +97,26 @@ function Body() {
               <TextField
                 error={blankError}
                 name="gameName"
-                label="Game name"
+                label={t("create-game.gn")}
                 color="secondary"
                 type="text"
                 inputProps={{ required: true, maxLength: 35 }}
                 variant="outlined"
                 className={classes.marginForm}
-                helperText={blankError ? "game name cannot be blank" : ""}
+                helperText={blankError ? t("create-game.gnerror") : ""}
                 onChange={handleGameNameChange}
               ></TextField>
               <TextField
                 name="maxPlayers"
                 select
-                label="Max. number of players"
+                label={t("create-game.maxplyr")}
                 color="secondary"
                 value={numPlayers}
                 onChange={handleChange}
                 SelectProps={{
                   native: true,
                 }}
-                helperText="Warning: You cannot change this value once the game starts"
+                helperText={t("create-game.warning")}
                 variant="outlined"
                 className={classes.marginForm}
               >
@@ -192,6 +126,69 @@ function Body() {
                   </option>
                 ))}
               </TextField>
+              <div className={classes.radioBlock}>
+                <FormControl
+                  component="fieldset"
+                  className={classes.marginForm}
+                >
+                  <FormLabel component="legend" color="secondary">
+                  {t("create-game.board")}
+                  </FormLabel>
+                  <RadioGroup
+                    aria-label={t("create-game.board")}
+                    name="table"
+                    value={radioValue}
+                    onChange={handleRadioChange}
+                  >
+                    <FormControlLabel
+                      value="default"
+                      control={<Radio />}
+                      label={t("create-game.default")}
+                    />
+                    <FormControlLabel
+                      value="custom"
+                      control={<Radio />}
+                      label={t("create-game.custom")}
+                    />
+                  </RadioGroup>
+                </FormControl>
+
+                {radioValue === "custom" ? (
+                  <React.Fragment>
+                    <Input
+                      accept="image/*"
+                      id="contained-button-file"
+                      multiple
+                      type="file"
+                      style={{ display: "none" }}
+                      onChange={handleFileChange}
+                      name="board"
+                    />
+
+                    <InputLabel
+                      htmlFor="contained-button-file"
+                      className={classes.inputFormat}
+                    >
+                      <Button
+                        variant="contained"
+                        component="span"
+                        color="primary"
+                      >
+                        <PublishIcon></PublishIcon>
+                        <Typography style={{ marginLeft: "0.3rem" }}>
+                          {t("create-game.upload")}
+                        </Typography>
+                      </Button>
+                      <Typography className={classes.marginInput}>
+                        {fileName}
+                      </Typography>
+                      <img src={fileImg} className={classes.fileImg} alt="" />
+                    </InputLabel>
+                  </React.Fragment>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
             <Button
               type="submit"
@@ -199,7 +196,7 @@ function Body() {
               color="primary"
               className={classes.marginForm}
             >
-              Submit game
+              {t("create-game.submit")}
             </Button>
           </form>
         </div>
@@ -210,7 +207,7 @@ function Body() {
             size="large"
             onClick={handleClickBack}
           >
-            <Typography variant="h5">Back</Typography>
+            <Typography variant="h5">{t("create-game.back")}</Typography>
           </Button>
         </Grid>
       </Grid>

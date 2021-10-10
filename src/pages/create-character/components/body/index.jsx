@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Preset from "./preset";
 import Custom from "./custom";
 import Start from "./start";
-import { Paper, Grid, Typography } from "@material-ui/core";
 
 function Body() {
   const classes = useStyles();

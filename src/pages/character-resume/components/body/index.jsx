@@ -5,11 +5,12 @@ import { useHistory } from "react-router";
 import Error from "./error";
 import Saved from "./saved";
 import Start from "./start";
+import { useTranslation } from "react-i18next";
 
 function Body(props) {
   const [isSaved, setIsSaved] = useState(false);
   const [error, setError] = useState(false);
-
+  const [t] = useTranslation("global");
   const classes = useStyles();
 
   const history = useHistory();
@@ -53,7 +54,7 @@ function Body(props) {
             className={classes.margin}
           >
             <Typography variant="h3" color="primary">
-              Character Resume
+              {t("character-resume.title")}
             </Typography>
           </Grid>
           {error ? (

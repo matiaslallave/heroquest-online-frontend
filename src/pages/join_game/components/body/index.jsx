@@ -2,11 +2,13 @@ import { Button, Grid, Paper, TextField, Typography } from "@material-ui/core";
 import { useStyles } from "./style";
 import { useHistory } from "react-router";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function Body() {
   const classes = useStyles();
   const history = useHistory();
   const [selectError, setSelectError] = useState(false);
+  const [t] = useTranslation("global");
 
   const handleClickBack = () => {
     history.push("/");
@@ -29,6 +31,7 @@ function Body() {
       fetch("http://localhost:4567/game", options).then((r) => {
         r.status === 200 ? console.log("OK") : console.log("KO");
       });
+      history.push(`/active_game/${e.target.gameCode.value}`);
     } else {
       setSelectError(true);
     }
@@ -43,7 +46,7 @@ function Body() {
       <Grid container justifyContent="center" alignContent="center">
         <Grid item xs={12} align="center" className={classes.margin}>
           <Typography variant="h3" color="primary">
-            Join Game
+            {t("join-game.title")}
           </Typography>
         </Grid>
         <div className={classes.formBackgr}>
@@ -52,7 +55,7 @@ function Body() {
             color="secondary"
             className={classes.marginForm}
           >
-            Enter game code:
+            {t("join-game.entercode")}
           </Typography>
           <form
             onSubmit={handleJoinSubmit}
@@ -62,9 +65,9 @@ function Body() {
           >
             <TextField
               error={selectError}
-              helperText={selectError ? "invalid game code" : ""}
+              helperText={selectError ? t("join-game.invalid") : ""}
               name="gameCode"
-              label="Game code"
+              label={t("join-game.gc")}
               color="secondary"
               type="text"
               variant="outlined"
@@ -79,7 +82,7 @@ function Body() {
               size="large"
               className={classes.marginForm}
             >
-              Join game
+              {t("join-game.join")}
             </Button>
           </form>
         </div>
@@ -90,7 +93,7 @@ function Body() {
             size="large"
             onClick={handleClickBack}
           >
-            <Typography variant="h5">Back</Typography>
+            <Typography variant="h5">{t("join-game.back")}</Typography>
           </Button>
         </Grid>
       </Grid>

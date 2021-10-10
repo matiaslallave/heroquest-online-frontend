@@ -1,0 +1,175 @@
+{
+    "home": {
+        "cc": "Create Character",
+        "cg": "Create Game",
+        "jg": "Join Game"
+    },
+    "header": {
+        "title": "HeroQuest Online",
+        "login": "Log In",
+        "register": "Register"
+    },
+    "footer": {
+        "lt": "Cookies",
+        "wwa": "GDPR",
+        "cont": "Terms & Conditions",
+        "switch": "Switch Theme"
+    },
+    "create-char-start": {
+        "title": "Create character",
+        "preset": "Preset",
+        "custom": "Custom",
+        "bttnback": "Back"
+    },
+    "create-char-preset": {
+        "title": "Create character / Preset",
+        "bttnback": "Back",
+        "loading": "Loading..."
+    },
+    "login": {
+        "login": "Log In",
+        "email": "Email",
+        "pass": "Password",
+        "submit": "Submit",
+        "noaccount": "No account? Sign in!",
+        "back": "Back to Home"
+    },
+    "signin": {
+        "signin": "Sign in",
+        "submitmsg": "Register sent. Please check your email",
+        "errpass": "Password does not match, please check again",
+        "errchar": "Password must have at least 6 characters",
+        "email": "Email",
+        "pass": "Password",
+        "repeatpass": "Repeat password",
+        "submit": "Submit",
+        "account": "Already signed in? Please log in",
+        "back": "Back to Home"
+    },
+    "reject": {
+        "title": "FAILED!",
+        "body": "An error has occurred with the user verification. Please check your email address or register again. Click here to ",
+        "link": "back to home"
+    },
+    "valid": {
+        "title": "SUCCESS!",
+        "body": "The user verification has been completed successfully. The glory awaits you!",
+        "link": "Log in ",
+        "link2": "to start your adventure"
+    },
+    "character-sheet": {
+        "name": "Name",
+        "race": "Race",
+        "class": "Class",
+        "characteristics": "Characteristics",
+        "wstitle": "Weapon Skill",
+        "bstitle": "Bow Skill",
+        "s": "Strength",
+        "t": "Toughness",
+        "sp": "Speed",
+        "int": "Intelligence",
+        "w": "Wounds",
+        "fp": "Fate Points",
+        "br": "Bravery",
+        "start": "Start",
+        "current": "Current",
+        "hthc": "Hand-to-Hand Combat",
+        "targetws": "Target WS",
+        "hr": "Hit Roll",
+        "rangedc": "Ranged Combat",
+        "range": "Range",
+        "weapons": "Weapons",
+        "damdice": "Dam Dice",
+        "fumble": "Fumble",
+        "crit": "Critical",
+        "armour": "Armour",
+        "equip": "Equipment"
+    },
+    "character-resume": {
+        "title": "Character Resume",
+        "savechar": "Save character",
+        "back": "Back to create character",
+        "saved": "CHARACTER SAVED!",
+        "savedtext": "Now you can join a game, or back to create another character",
+        "join": "Join Game",
+        "error": "ERROR!",
+        "errortext": "You already have a character with that name, please select another name"
+    },
+    "create-game": {
+        "title": "Create game",
+        "opt": "Choose options:",
+        "gn": "Game name",
+        "gnerror": "Game name cannot be blank",
+        "maxplyr": "Max. number of players",
+        "warning": "Warning: You cannot change this value once the game starts",
+        "board": "Board",
+        "default": "Default",
+        "custom": "Custom",
+        "upload": "Upload custom map",
+        "submit": "Submit game",
+        "back": "Back"
+    },
+    "join-game": {
+        "title": "Join game",
+        "entercode": "Enter game code",
+        "gc": "Game code",
+        "join": "Join",
+        "back": "Back",
+        "invalid": "Invalid game code"
+    },
+    "cookies": {
+        "title": "Cookies",
+        "body": "We only use cookies that are strictly necessary for the operation of this website and the identification of its users.",
+        "back": "Back"
+    },
+    "gdpr": {
+        "title": "General Data Protection Regulation",
+        "whowe": "Who we are",
+        "whowebody": "In accordance with the provisions of Organic Law 15/1999 of 13 December, on the Protection of Personal Data, Royal Decree 1720/2007 of 21 December, which approves the Regulation of development of the Organic Law and other regulations in force at all times, and ensures the correct use and processing of the user's personal data, we inform you that your data will be included in an automated file of which it is the owner, and may be used for purposes specified in each specific case.",
+        "whatwhy": "What personal data we collect and why we collect it",
+        "whatwhybody1": "By sending your personal data through this website, in order to make a request for information/quote, you consent to the inclusion and processing of your data in the CUSTOMERS file, registered by this company with the AGPD (Spanish Data Protection Agency). The data obtained will be used to deal with the request made by you.",
+        "whatwhybody2": "The data provided may also be used to send you information about our products and services. If you do not wish to receive this type of information, simply inform us to Matías Lallave.",
+        "back": "Back",
+        "coment": "Comments",
+        "comentbody1": "When visitors leave comments on the site, we collect the data displayed in the comment form, as well as the visitor's IP address and browser user agent string to aid spam detection.",
+        "comentbody2": "An anonymous string created from your email address (also called a hash) can be provided to the Gravatar service to see if you are using it. The privacy policy of the Gravatar service is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.",
+        "media": "Media",
+        "mediabody": "If you upload images to the website you should avoid uploading images with location data (GPS EXIF) included. Visitors to the website can download and extract any location data from images on the website.",
+        "contact": "Contact forms",
+        "contactbody1": "We inform you that the personal data you provide us with by filling in the form will be processed by Paloma Rebolleda as the person responsible for this website. The purpose of collecting and processing the personal data we request is to answer the query or proposal made.",
+        "contactbody2": "Legitimation: by ticking the acceptance box, you are giving your legitimate consent for your data to be processed in accordance with the purposes of this form described in this privacy policy. As a user and interested party, we inform you that the data you provide will be stored on Paloma Rebolleda's servers. You may exercise your rights of access, rectification, limitation and deletion of data at ",
+        "contactbody3":" , as well as the right to lodge a complaint with a supervisory authority. Additional detailed information on data protection can be found in this privacy policy.",
+        "cookies": "Cookies",
+        "cookiesbody1": "If you leave a comment on our site you can choose to save your name, email address and website in cookies. This is for your convenience, so you don't have to fill in your details again when you leave another comment. These cookies will last for one year.",
+        "cookiesbody2": "If you have an account and log in to this site, we will set a temporary cookie to determine whether your browser accepts cookies. This cookie does not contain any personal data and is deleted when you close your browser.",
+        "cookiesbody3": "When you log in, we will also set a number of cookies to store your login information and your viewing your login information and your screen display options. display options. Login cookies last for two days, and display options cookies last for one year. display options cookies last for one year. If you select 'Remember me', your login will last for two weeks. If you log out of your account, your login cookies will be deleted.",
+        "cookiesbody4": "If you edit or publish an article, an additional cookie will be stored in your browser. This cookie does not contain any personal data and simply indicates the ID of the article you have just edited. It expires after 1 day.",
+        "embedded": "Embedded content from other websites",
+        "embeddedbody1": "Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in exactly the same way as if the visitor had visited the other website.",
+        "embeddedbody2": "These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that site.",
+        "analytics": "Analytics",
+        "analyticsbody1": "The study of the use of the services by users and visitors will not transfer information to third parties without the prior consent of the users, except in the cases regulated in articles 11 and 12 of the LOPD: When the transfer is authorised by Law; When the data is collected from sources accessible to the public; When the transfer to be made is addressed to the Ombudsman, the Public Prosecutor's Office or the Courts or the Court of Auditors, in the exercise of the functions attributed to them; When the transfer is addressed to autonomous institutions with functions analogous to the Ombudsman or the Court of Auditors; If the communication is made following a dissociation procedure.",
+        "analyticsbody2": "In the event that the user is asked for personal data by means other than those described above, they will be expressly and unequivocally informed of the conditions under which personal data are collected and the purposes for which they are to be used, the obligation to provide them or not, the rights of the user, the conditions under which they may be exercised, the recipients of the information, the person responsible for the file and any other additional information that may be necessary. You may exercise your right of access, rectification, cancellation and opposition to the processing of your personal data, under the terms and conditions provided for in the LOPD, by writing to the following e-mail address ",
+        "analyticsbody3": "Failure to enter the personal data required in the contact form may result in us not being able to deal with your request. Likewise, by accepting this legal notice, you acknowledge that the information and personal data collected are accurate and truthful.",
+        "howlong": "How long we keep your data",
+        "howlongbody": "If you leave a comment, the comment and its metadata are retained indefinitely. This is so that we can recognise and approve successive comments automatically rather than keeping them in a moderation queue. For users who register on our site (if any), we also store the personal information they provide in their user profile. All users can view, edit or delete their personal information at any time (except that they cannot change their username). Site administrators can also view and edit that information.",
+        "whatrights": "What rights you have over your data",
+        "whatrightsbody1": "You can request that we delete any personal data we hold about you by filling out ",
+        "whatrightsbody2": ". This does not include any data that we are obliged to retain for administrative, legal or security purposes.",
+        "whatrightslink": "the form below",
+        "wherewe": "Where we send your data",
+        "wherewebody": "Visitor comments may be checked by an automatic spam detection service.",
+        "contactinfo": "Contact information",
+        "country": "Spain",
+        "address": "Address: ",
+        "city": "City: ",
+        "phone": "Phone number: ",
+        "howwe": "How we protect your data",
+        "howwebody1": "We also inform you that Matías Lallave has implemented the necessary technical and organisational measures to guarantee the security of your personal data and to avoid its alteration, loss and unauthorised processing and/or access, taking into account the state of technology, the nature of the data stored and the risks arising from human action or the physical and natural environment to which it is exposed. All of this, in accordance with the provisions of article 9 of Organic Law 15/1999 on the Protection of Personal Data and Royal Decree 1720/2007, of 21 December, implementing the aforementioned Law.",
+        "howwebody2": "Matías Lallave undertakes to treat your personal data in the strictest confidence and to use them only for the purposes indicated."
+    },
+    "t&c":{
+        "title":"Terms & Conditions",
+        "body":"I, Matías Lallave, am not responsible for the public content of this website (images or texts). This website was created as a final work of a course and has no profit motive."
+    }
+}

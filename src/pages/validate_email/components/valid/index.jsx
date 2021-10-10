@@ -2,26 +2,41 @@ import { Grid, Typography, Container } from "@material-ui/core";
 import ImgValid from "../../../../assets/valid.jpg";
 import { useStyles } from "./style.js";
 import { Link } from "react-router-dom";
-import Card from '../../../../assets/card.png';
+import Card from "../../../../assets/card.png";
+import { useTranslation } from "react-i18next";
 
 function Valid() {
   const classes = useStyles();
+  const [t] = useTranslation("global");
   return (
-    <Grid container alignItems="center" justifyContent="center" spacing={3} className={classes.root}>
-      <Grid item xs={12} sm={8} md={6} lg={4} className={classes.cardContentContainer}>
+    <Grid
+      container
+      alignItems="center"
+      justifyContent="center"
+      spacing={3}
+      className={classes.root}
+    >
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={6}
+        lg={4}
+        className={classes.cardContentContainer}
+      >
         <img alt="" src={Card} className={classes.cardImage} />
         <Container className={classes.cardBodyContainer}>
-          <Typography className={classes.cardFontTitle} variant="h3">¡CONSEGUIDO!</Typography>
+          <Typography className={classes.cardFontTitle} variant="h3">
+            {t("valid.title")}
+          </Typography>
           <img alt="" src={ImgValid} className={classes.cardIlustration}></img>
           <Typography className={classes.cardFont} variant="h6">
-            La verificación de usuario se ha completado con éxito. ¡La
-            gloria te espera!&nbsp;
+            {t("valid.body")}
             <Link to="/login" className={classes.linkValid}>
-              Inicia sesión
-            </Link>&nbsp;
-            para comenzar tu aventura
+              {t("valid.link")}
+            </Link>
+            {t("valid.link2")}
           </Typography>
-
         </Container>
       </Grid>
     </Grid>

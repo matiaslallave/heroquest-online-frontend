@@ -6,6 +6,7 @@ import "./style.css";
 import { useState } from "react";
 import { Typography } from "@material-ui/core";
 
+
 function CharacterResume() {
   const [isLoading, setLoading] = useState(true);
   const [character, setCharacter] = useState();

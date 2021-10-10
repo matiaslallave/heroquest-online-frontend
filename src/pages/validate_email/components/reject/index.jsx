@@ -2,24 +2,40 @@ import { Grid, Typography, Container } from "@material-ui/core";
 import ImgReject from "../../../../assets/reject.jpg";
 import { useStyles } from "./style.js";
 import { Link } from "react-router-dom";
-import Card from '../../../../assets/card.png';
+import Card from "../../../../assets/card.png";
+import { useTranslation } from "react-i18next";
 
 function Reject() {
   const classes = useStyles();
+  const [t] = useTranslation("global");
   return (
-    <Grid container alignItems="center" justifyContent="center" spacing={3} className={classes.root}>
-      <Grid item xs={12} sm={8} md={6} lg={4} className={classes.cardContentContainer}>
+    <Grid
+      container
+      alignItems="center"
+      justifyContent="center"
+      spacing={3}
+      className={classes.root}
+    >
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={6}
+        lg={4}
+        className={classes.cardContentContainer}
+      >
         <img alt="" src={Card} className={classes.cardImage} />
         <Container className={classes.cardBodyContainer}>
-          <Typography className={classes.cardFontTitle} variant="h3">¡FRACASO!</Typography>
+          <Typography className={classes.cardFontTitle} variant="h3">
+            {t("reject.title")}
+          </Typography>
           <img alt="" src={ImgReject} className={classes.cardIlustration}></img>
           <Typography className={classes.cardFont} variant="h6">
-            Ha ocurrido un error con la verificación de usuario. Por favor, revista tu correo electrónico o regístrate de nuevo. Haz click para&nbsp;
+            {t("reject.body")}
             <Link to="/" className={classes.linkValid}>
-              volver a portada.
+              {t("reject.link")}
             </Link>
           </Typography>
-
         </Container>
       </Grid>
     </Grid>

@@ -2,9 +2,12 @@ import React from "react";
 import { Grid, Paper, Typography, Button } from "@material-ui/core";
 import { useStyles } from "../style";
 import CheckedIcon from "../../../../../assets/check.png";
+import { useTranslation } from "react-i18next";
 
 function Saved(props) {
   const classes = useStyles();
+  const [t] = useTranslation("global");
+
   return (
     <React.Fragment>
       <Grid container item xs={12} sm={12} lg={12} justifyContent="center">
@@ -23,14 +26,14 @@ function Saved(props) {
               color="primary"
               className={classes.checkText}
             >
-              CHARACTER SAVED!
+              {t("character-resume.saved")}
             </Typography>
             <Typography
               variant="h5"
               color="primary"
               className={classes.checkText}
             >
-              Now you can join a game, or back to create another character
+              {t("character-resume.savedtext")}
             </Typography>
           </div>
         </Grid>
@@ -49,7 +52,7 @@ function Saved(props) {
           size="large"
           onClick={props.handleClickGame}
         >
-          <Typography variant="h5">Join game</Typography>
+          <Typography variant="h5">{t("character-resume.join")}</Typography>
         </Button>
       </Grid>
       <Grid
@@ -66,7 +69,7 @@ function Saved(props) {
           size="large"
           onClick={props.handleClickBack}
         >
-          <Typography variant="h5">Back to create character</Typography>
+          <Typography variant="h5">{t("character-resume.back")}</Typography>
         </Button>
       </Grid>
     </React.Fragment>

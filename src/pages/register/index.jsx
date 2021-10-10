@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/styles";
 import "./style.css";
 import { Typography, TextField, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   margin: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles({
 function Register() {
   const [message, setMessage] = useState("");
   const [colorMessage, setColorMessage] = useState("");
-
+  const [t] = useTranslation("global");
   const classes = useStyles();
 
   const handleSubmit = (e) => {
@@ -42,19 +43,19 @@ function Register() {
             .then((d) => {
               console.log(d);
               setColorMessage("");
-              setMessage("Registro enviado. Revista tu correo electrónico");
+              setMessage(t("signin.submitmsg"));
               e.target.pass.value = "";
               e.target.repeated_pass.value = "";
             });
         } else {
           setColorMessage("error");
-          setMessage("Las contraseñas no coinciden");
+          setMessage(t("signin.errpass"));
           e.target.pass.value = "";
           e.target.repeated_pass.value = "";
         }
       } else {
         setColorMessage("error");
-        setMessage("La contraseña debe tener al menos 6 caracteres");
+        setMessage(t("signin.errchar"));
         e.target.pass.value = "";
         e.target.repeated_pass.value = "";
       }
@@ -70,26 +71,26 @@ function Register() {
         <div className="register-right">
           <div className="form">
             <Typography variant="h4" color="secondary">
-              Regístrate
+            {t("signin.signin")}
             </Typography>
             <form autoComplete="off" className="inputs" onSubmit={handleSubmit}>
               <TextField
                 name="email"
-                label="Correo electrónico"
+                label={t("signin.email")}
                 color="secondary"
                 type="email"
                 className={classes.margin}
               />
               <TextField
                 name="pass"
-                label="Contraseña"
+                label={t("signin.pass")}
                 color="secondary"
                 type="password"
                 className={classes.margin}
               />
               <TextField
                 name="repeated_pass"
-                label="Repite contraseña"
+                label={t("signin.repeatpass")}
                 color="secondary"
                 type="password"
                 className={classes.margin}
@@ -100,18 +101,20 @@ function Register() {
                 type="submit"
                 className={classes.margin}
               >
-                Enviar
+                {t("signin.submit")}
               </Button>
             </form>
 
-            <Typography color={colorMessage} className={classes.margin}>{message}</Typography>
+            <Typography color={colorMessage} className={classes.margin}>
+              {message}
+            </Typography>
 
             <div>
               <Link to="/login" className="nolink">
-                <Typography color="secondary">{`¿Tienes cuenta? Inicia sesión`}</Typography>
+                <Typography color="secondary">{t("signin.account")}</Typography>
               </Link>
               <Link to="/" className="nolink">
-                <Typography color="secondary">{`Volver a inicio`}</Typography>
+                <Typography color="secondary">{t("signin.back")}</Typography>
               </Link>
             </div>
           </div>

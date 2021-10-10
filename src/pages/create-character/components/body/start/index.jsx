@@ -5,6 +5,7 @@ import CustomHero from "../../../../../assets/custom.jpg";
 import { useStyles } from "../style";
 import React from "react";
 import { useHistory } from "react-router";
+import { useTranslation } from "react-i18next";
 
 function Start(props) {
   const classes = useStyles();
@@ -19,6 +20,8 @@ function Start(props) {
     history.push("/");
   };
 
+  const [t] = useTranslation("global");
+
   return (
     <React.Fragment>
       <Paper elevation={3} className={classes.baseTextBlock}>
@@ -32,7 +35,7 @@ function Start(props) {
             className={classes.margin}
           >
             <Typography variant="h3" color="primary">
-              Create character
+              {t("create-char-start.title")}
             </Typography>
           </Grid>
           <Grid container>
@@ -45,7 +48,7 @@ function Start(props) {
               className={classes.margin}
             >
               <StdCard
-                title="Preset"
+                title= {t("create-char-start.preset")}
                 img={PreselectHero}
                 handleClick={handleClickPreset}
               ></StdCard>
@@ -59,7 +62,7 @@ function Start(props) {
               className={classes.margin}
             >
               <StdCard
-                title="Custom"
+                title= {t("create-char-start.custom")}
                 img={CustomHero}
                 handleClick={handleClickCustom}
               ></StdCard>
@@ -78,7 +81,7 @@ function Start(props) {
                 size="large"
                 onClick={handleClickBack}
               >
-                <Typography variant="h5">Back</Typography>
+                <Typography variant="h5">{t("create-char-start.bttnback")}</Typography>
               </Button>
             </Grid>
           </Grid>
