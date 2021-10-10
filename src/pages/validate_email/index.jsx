@@ -1,6 +1,5 @@
 import { Typography } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom"; // importo el hook de location para obtener los query params
 import Reject from "./components/reject";
 import Valid from "./components/valid";
 import { useQuery } from "../../hooks";

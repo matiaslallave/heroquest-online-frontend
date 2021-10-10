@@ -6,39 +6,39 @@ export const useStyles = makeStyles({
   },
   cellTitle: {
     backgroundColor: "#DFCFA0",
-    padding: "0.5rem",
+    padding: "0.3rem",
     textAlign: "center",
   },
   cell: {
-    padding: "0.5rem",
+    padding: "0.3rem",
     textAlign: "center",
-    minWidth: "1rem",
+    minWidth: "1.7rem",
   },
   cellWpnArm: {
-    padding: "0.5rem",
+    padding: "0.3rem",
     textAlign: "center",
     minWidth: "5rem",
+    minHeight: "100px"
   },
   cellEquip: {
-    padding: "0.5rem",
+    padding: "0.3rem",
     textAlign: "center",
-    minWidth: "1rem",
+    minWidth: "5rem",
     backgroundColor: "white"
   },
   tableContainer:{
       minWidth: "100%"
   },
   portrait:{
-      width:"100%",
-      height:"437px",
+      width:"270px",
       borderRadius: "10px",
-    //   margin:"0.3rem"
+      marginTop:"0.3rem"
   },
   mainContainer: {
       display:"flex",
       justifyContent: "center"
   },
   portraitContainer: {
-      marginRight: "0.2rem"
+      marginRight: "0.3rem"
   }
 });

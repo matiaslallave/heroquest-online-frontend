@@ -1,0 +1,169 @@
+{
+    "home": {
+        "cc": "Crear personaje",
+        "cg": "Crear Partida",
+        "jg": "Unirse a Partida"
+    },
+    "header": {
+        "title": "HeroQuest Online",
+        "login": "Iniciar sesión",
+        "register": "Registrarse"
+    },
+    "footer": {
+        "lt": "Cookies",
+        "wwa": "RGPD",
+        "cont": "Términos y Condiciones",
+        "switch": "Cambiar Tema"
+    },
+    "create-char-start": {
+        "title": "Crear personaje",
+        "preset": "Preseleccionados",
+        "custom": "Personalizados",
+        "bttnback": "Volver"
+    },
+    "create-char-preset": {
+        "title": "Crear personaje / Preseleccionados",
+        "bttnback": "Volver",
+        "loading": "Cargando..."
+    },
+    "login": {
+        "login": "Iniciar sesión",
+        "email": "Correo electrónico",
+        "pass": "Constraseña",
+        "submit": "Enviar",
+        "noaccount": "¿No tienes cuenta? ¡Regístrate!",
+        "back": "Volver al inicio"
+    },
+    "signin": {
+        "signin": "Regístro",
+        "submitmsg": "Registro enviado. Por favor comprueba tu correo electrónico",
+        "errpass": "La constraseña no coincide, por favor comprueba de nuevo",
+        "errchar": "La contraseña debe tener al menos 6 caracteres",
+        "email": "Correo electrónico",
+        "pass": "Contraseña",
+        "repeatpass": "Repetir contraseña",
+        "submit": "Enviar",
+        "account": "¿Ya tienes una cuenta? Inicia sesión",
+        "back": "Volver a inicio"
+    },
+    "reject": {
+        "title": "FRACASO!",
+        "body": "Ha ocurrido un error con la verificación de usuario. Por favor, revista tu correo electrónico o regístrate de nuevo. Haz click para",
+        "link": "volver a inicio"
+    },
+    "character-sheet": {
+        "name": "Nombre",
+        "race": "Raza",
+        "class": "Clase",
+        "characteristics": "Características",
+        "wstitle": "Habilidad con armas",
+        "bstitle": "Habilidad con proyectiles",
+        "s": "Fuerza",
+        "t": "Dureza",
+        "sp": "Velocidad",
+        "int": "Inteligencia",
+        "w": "Heridas",
+        "fp": "Puntos de destino",
+        "br": "Bravura",
+        "start": "Inicial",
+        "current": "Actual",
+        "hthc": "Combate cuerpo a cuerpo",
+        "targetws": "HA del blanco",
+        "hr": "Tirada para impactar",
+        "rangedc": "Combate a distancia",
+        "range": "Distancia",
+        "weapons": "Armas",
+        "damdice": "Dados de daño",
+        "fumble": "Fallo crítico",
+        "crit": "Impacto crítico",
+        "armour": "Armadura",
+        "equip": "Equipo"
+    },
+    "character-resume": {
+        "title": "Hoja de personaje",
+        "savechar": "Guardar personaje",
+        "back": "Volver a crear personaje",
+        "saved": "¡PERSONAJE GUARDADO!",
+        "savedtext": "Ahora puedes unirte a una partida, o volver a crear un personaje",
+        "join": "Unirse a partida",
+        "error": "¡ERROR!",
+        "errortext": "Ya tienes un personaje con ese nombre, por favor selecciona otro diferente"
+    },
+    "create-game": {
+        "title": "Crear partida",
+        "opt": "Elige opciones:",
+        "gn": "Nombre de partida",
+        "gnerror": "El nombre de partida no puede estar en blanco",
+        "maxplyr": "Número máximo de jugadores",
+        "warning": "Advertencia: Este valor no puede cambiar una vez empiece la partida",
+        "board": "Tablero",
+        "default": "Por defecto",
+        "custom": "Personalizado",
+        "upload": "Subir mapa personalizado",
+        "submit": "Crear partida",
+        "back": "Volver"
+    },
+    "join-game": {
+        "title": "Unirse a partida",
+        "entercode": "Introduce código de partida",
+        "gc": "Código de partida",
+        "join": "Unirse",
+        "back": "Volver",
+        "invalid": "Código de partida inválido"
+    },
+    "cookies": {
+        "title": "Cookies",
+        "body": "Solamente utilizamos cookies estrictamente necesarias para el funcionamiento de esta web y la identificación de sus usuarios.",
+        "back": "Volver"
+    },
+    "gdpr": {
+        "title": "Reglamento general de protección de datos",
+        "whowe": "Quienes somos",
+        "whowebody": "De conformidad con lo dispuesto en la Ley Orgánica 15/1999, de 13 de diciembre, de Protección de Datos de Carácter Personal, el Real Decreto 1720/2007, de 21 de diciembre, por el que se aprueba el Reglamento de desarrollo de la Ley Orgánica y demás normativa vigente en cada momento, y se garantiza el correcto uso y tratamiento de los datos personales del usuario, le informamos que sus datos serán incluidos en un fichero automatizado del que es titular, pudiendo ser utilizados para las finalidades que se especifiquen en cada caso concreto",
+        "whatwhy": "Qué datos personales recogemos y por qué los recogemos",
+        "whatwhybody1": "El envío de sus datos personales a través de esta web, con el fin de realizar una solicitud de información/presupuesto, consiente la inclusión y tratamiento de sus datos en el fichero CLIENTES, inscrito por esta empresa en la AGPD (Agencia Española de Protección de Datos). Los datos obtenidos serán utilizados para atender la solicitud realizada por usted",
+        "whatwhybody2": "Los datos facilitados también podrán ser utilizados para enviarle información sobre nuestros productos y servicios. Si no desea recibir este tipo de información, simplemente comuníquelo a Matías Lallave",
+        "back": "Volver",
+        "coment": "Comentarios",
+        "comentbody1": "Cuando los visitantes dejan comentarios en el sitio, recogemos los datos que aparecen en el formulario de comentarios, así como la dirección IP del visitante y la cadena de agentes de usuario del navegador para ayudar a la detección de spam",
+        "comentbody2": "Una cadena anónima creada a partir de tu dirección de correo electrónico (también llamada hash) puede ser proporcionada al servicio Gravatar para ver si lo estás utilizando. La política de privacidad del servicio Gravatar está disponible aquí: https://automattic.com/privacy/. Tras la aprobación de tu comentario, tu foto de perfil es visible para el público en el contexto de tu comentario",
+        "media": "Medios",
+        "mediabody": "Si subes imágenes al sitio web, debes evitar subirlas con datos de localización (GPS EXIF) incluidos. Los visitantes del sitio web pueden descargar y extraer cualquier dato de localización de las imágenes del sitio web",
+        "contact": "Formularios de contacto",
+        "contactbody1": "Le informamos que los datos personales que nos facilite rellenando el formulario serán tratados por Paloma Rebolleda como responsable de esta web. La finalidad de la recogida y tratamiento de los datos personales que le solicitamos es responder a la consulta o propuesta realizada",
+        "contactbody2": " Legitimación: al marcar la casilla de aceptación, estás dando tu legítimo consentimiento para que tus datos sean tratados conforme a las finalidades de este formulario descritas en esta política de privacidad. Como usuario e interesado, te informamos que los datos que nos facilitas estarán ubicados en los servidores de Paloma Rebolleda. Puede ejercer sus derechos de acceso, rectificación, limitación y supresión de datos en ",
+        "contactbody3": " , así como el derecho a presentar una reclamación ante una autoridad de control. En esta política de privacidad se puede encontrar información adicional detallada sobre la protección de datos",
+        "cookies": "Cookies",
+        "cookiesbody1": "Si dejas un comentario en nuestro sitio, puedes elegir guardar tu nombre, dirección de correo electrónico y sitio web en las cookies. Esto es para su comodidad, para que no tenga que volver a rellenar sus datos cuando deje otro comentario. Estas cookies durarán un año",
+        "cookiesbody2": "Si tiene una cuenta y se conecta a este sitio, estableceremos una cookie temporal para determinar si su navegador acepta cookies. Esta cookie no contiene ningún dato personal y se elimina al cerrar el navegador",
+        "cookiesbody3": "Cuando inicie la sesión, también estableceremos una serie de cookies para almacenar su información de inicio de sesión y su visualización de las opciones de visualización de la pantalla. Las cookies de inicio de sesión duran dos días, y las de opciones de visualización duran un año. Si selecciona 'Recordarme', su inicio de sesión durará dos semanas. Si sale de su cuenta, sus cookies de inicio de sesión se borrarán",
+        "cookiesbody4": "Si edita o publica un artículo, se almacenará una cookie adicional en su navegador. Esta cookie no contiene ningún dato personal y simplemente indica el ID del artículo que acaba de editar. Caduca al cabo de 1 día",
+        "embedded": "Contenido incrustado de otros sitios web",
+        "embeddedbody1": "Los artículos de este sitio pueden incluir contenido incrustado (por ejemplo, vídeos, imágenes, artículos, etc.). El contenido incrustado de otros sitios web se comporta exactamente igual que si el visitante hubiera visitado el otro sitio web",
+        "embeddedbody2": "Estos sitios web pueden recopilar datos sobre usted, utilizar cookies, incrustar seguimiento adicional de terceros y supervisar su interacción con ese contenido incrustado, incluido el seguimiento de su interacción con el contenido incrustado si tiene una cuenta y ha iniciado sesión en ese sitio",
+        "analytics": "Analítica",
+        "analyticsbody1": "El estudio de la utilización de los servicios por parte de los usuarios y visitantes no cederá información a terceros sin el previo consentimiento de los usuarios, salvo en los casos regulados en los artículos 11 y 12 de la LOPD: Cuando la cesión esté autorizada por la Ley; Cuando los datos se recojan de fuentes accesibles al público; Cuando la cesión a realizar se dirija al Defensor del Pueblo, al Ministerio Fiscal o a los Tribunales o al Tribunal de Cuentas, en el ejercicio de las funciones que tienen atribuidas; Cuando la cesión se dirija a instituciones autonómicas con funciones análogas al Defensor del Pueblo o al Tribunal de Cuentas; Si la comunicación se realiza tras un procedimiento de disociación. ",
+        "analyticsbody2": "En el caso de que se soliciten al usuario datos de carácter personal por medios distintos a los descritos anteriormente, se le informará de forma expresa e inequívoca de las condiciones en que se recogen los datos personales y de las finalidades para las que van a ser utilizados, de la obligación de facilitarlos o no, de los derechos que asisten al usuario, de las condiciones en que pueden ejercitarse, de los destinatarios de la información, del responsable del fichero y de cualquier otra información adicional que resulte necesaria. Podrá ejercer su derecho de acceso, rectificación, cancelación y oposición al tratamiento de sus datos personales, en los términos y condiciones previstos en la LOPD, dirigiéndose a la siguiente dirección de correo electrónico ",
+        "analyticsbody3": "El hecho de no introducir los datos personales requeridos en el formulario de contacto puede suponer que no podamos atender su solicitud. Asimismo, con la aceptación de este aviso legal, usted reconoce que la información y los datos personales recogidos son exactos y veraces",
+        "howlong": "Cuánto tiempo conservamos sus datos",
+        "howlongbody": "Si dejas un comentario, el comentario y sus metadatos se conservan indefinidamente. Esto es así para que podamos reconocer y aprobar los comentarios sucesivos de forma automática en lugar de mantenerlos en una cola de moderación. En el caso de los usuarios que se registran en nuestro sitio (si los hay), también almacenamos la información personal que proporcionan en su perfil de usuario. Todos los usuarios pueden ver, editar o eliminar su información personal en cualquier momento (excepto que no pueden cambiar su nombre de usuario). Los administradores del sitio también pueden ver y editar esa información",
+        "whatrights": "Qué derechos tiene usted sobre sus datos",
+        "whatrightsbody1": "Puede solicitar que eliminemos cualquier dato personal que tengamos sobre usted rellenando ",
+        "whatrightsbody2": ". Esto no incluye ningún dato que estemos obligados a conservar por motivos administrativos, legales o de seguridad",
+        "whatrightslink": "el formulario de abajo",
+        "wherewe": "Dónde enviamos sus datos",
+        "wherewebody": "Los comentarios de los visitantes pueden ser revisados por un servicio automático de detección de spam",
+        "contactinfo": "Información de contacto",
+        "country": "España",
+        "address": "Dirección: ",
+        "city": "Ciudad: ",
+        "phone": "Teléfono: ",
+        "howwe": "Cómo protegemos tus datos",
+        "howwebody1": "Asimismo, le informamos que Matías Lallave tiene implantadas las medidas de índole técnica y organizativa necesarias para garantizar la seguridad de sus datos de carácter personal y evitar su alteración, pérdida y tratamiento y/o acceso no autorizado, habida cuenta del estado de la tecnología, la naturaleza de los datos almacenados y los riesgos derivados de la acción humana o del medio físico y natural a que están expuestos. Todo ello, de conformidad con lo dispuesto en el artículo 9 de la Ley Orgánica 15/1999 de Protección de Datos de Carácter Personal y en el Real Decreto 1720/2007, de 21 de diciembre, por el que se desarrolla la citada Ley",
+        "howwebody2": "Matías Lallave se compromete a tratar sus datos personales con la más estricta confidencialidad y a utilizarlos únicamente para los fines indicados."
+    },
+    "t&c": {
+        "title": "Términos Y Condiciones",
+        "body": "Yo, Matías Lallave, no soy responsable del contenido público de esta web (imágenes o textos). Este sitio web fue creado como trabajo final de un curso y no tiene fines de lucro."
+    }
+}

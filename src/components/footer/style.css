@@ -3,18 +3,38 @@
     align-content: center;
     justify-content: space-between;
     align-items: center;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
     padding: 1rem 1rem 1rem 1rem;
 }
 
 .subfooter {
     display: flex;
-    align-content: center;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     width: 35%;
 }
 
-.nolink{
+.footertheme {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+}
+
+.nolink {
     text-decoration: none;
+}
+
+.flagicon{
+    width: 40px;
+    height: 25px;
+    border-radius: 5px;
+}
+.flagicon:hover{
+    width: 45px;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid green;
 }

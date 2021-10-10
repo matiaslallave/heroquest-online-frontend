@@ -1,9 +1,12 @@
 import { Typography } from "@material-ui/core";
 import { useStyles } from "./style";
+import { SERVER_URL_AUTH } from "../../utils";
+import { useTranslation } from "react-i18next";
 
 function CharacterSheet(props) {
+  const [t, i18n] = useTranslation("global");
   const classes = useStyles();
-  const portrait = props.img;
+  const portrait = SERVER_URL_AUTH + props.character.img;
 
   const calcArmourTotal = (armourA, armourB) => {
     armourA = parseInt(armourA);
@@ -17,9 +20,32 @@ function CharacterSheet(props) {
     return total;
   };
 
-  const formatEquip = (equipemnt) => {
-    return equipemnt.join(", ");
+  const formatEquip = (equipment) => {
+    return equipment.join(", ");
   };
+
+  let txtWeapon = "";
+  let txtClass = "";
+  let txtRace = "";
+  let txtArmour = "";
+  let txtEquipment = [];
+
+  switch (i18n.options.lng) {
+    case "es":
+      txtWeapon = props.character.weapons[0]?.type_es;
+      txtClass = props.character.class_es;
+      txtRace = props.character.race_es;
+      txtArmour = props.character.armour[0]?.type_es;
+      txtEquipment = props.character.equipment_es;
+      break;
+    default:
+      txtWeapon = props.character.weapons[0]?.type;
+      txtClass = props.character.class;
+      txtRace = props.character.race;
+      txtArmour = props.character.armour[0]?.type;
+      txtEquipment = props.character.equipment;
+      break;
+  }
 
   return (
     <div className={classes.mainContainer}>
@@ -28,91 +54,147 @@ function CharacterSheet(props) {
         <table className={classes.tableContainer}>
           <tr className={classes.cellTitle}>
             <td className={classes.cell}>
-              <Typography>Name</Typography>
+              <Typography>{t("character-sheet.name")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>Race</Typography>
+              <Typography>{t("character-sheet.race")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>Class</Typography>
+              <Typography>{t("character-sheet.class")}</Typography>
             </td>
           </tr>
           <tr className={classes.cellData}>
             <td className={classes.cell}>
-              <Typography>{props.name}</Typography>
+              <Typography>{props.character.name}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.race}</Typography>
+              <Typography>{txtRace}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.class}</Typography>
+              <Typography>{txtClass}</Typography>
             </td>
           </tr>
         </table>
         <img alt="" src={portrait} className={classes.portrait}></img>
       </div>
-      <div >
+      <div>
         {/**CHARACTERISTICS */}
         <table className={classes.tableContainer}>
           <tr className={classes.cellTitle}>
-            <td rowSpan="2" className={classes.cell}>
-              <Typography>CHARACTERISTICS</Typography>
+            <td rowSpan="3" className={classes.cell}>
+              <Typography>{t("character-sheet.characteristics")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>WEAPON SKILL</Typography>
+              <Typography></Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>BOW SKILL</Typography>
+              <Typography>{t("character-sheet.wstitle")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>Strength</Typography>
+              <Typography>{t("character-sheet.bstitle")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>TOUGHNESS</Typography>
+              <Typography>{t("character-sheet.s")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>SPEED</Typography>
+              <Typography>{t("character-sheet.t")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>BRAVERY</Typography>
+              <Typography>{t("character-sheet.sp")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>INTELLIGENCE</Typography>
+              <Typography>{t("character-sheet.br")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>WOUNDS</Typography>
+              <Typography>{t("character-sheet.int")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>FATE POINTS</Typography>
+              <Typography>{t("character-sheet.w")}</Typography>
+            </td>
+            <td className={classes.cell}>
+              <Typography>{t("character-sheet.fp")}</Typography>
             </td>
           </tr>
           <tr className={classes.cellData}>
             <td className={classes.cell}>
-              <Typography>{props.WeaponSkill}</Typography>
+              <Typography>{t("character-sheet.start")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.BS}</Typography>
+              <Typography>{props.character.characteristics.WS}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.S}</Typography>
+              <Typography>{props.character.characteristics.BS}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.T}</Typography>
+              <Typography>{props.character.characteristics.S}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.Sp}</Typography>
+              <Typography>{props.character.characteristics.T}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.Br}</Typography>
+              <Typography>{props.character.characteristics.Sp}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.Int}</Typography>
+              <Typography>{props.character.characteristics.Br}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.W}</Typography>
+              <Typography>{props.character.characteristics.Int}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.FP}</Typography>
+              <Typography>{props.character.characteristics.W}</Typography>
+            </td>
+            <td className={classes.cell}>
+              <Typography>{props.character.characteristics.FP}</Typography>
+            </td>
+          </tr>
+          <tr className={classes.cellData}>
+            <td className={classes.cell}>
+              <Typography>{t("character-sheet.current")}</Typography>
+            </td>
+            <td className={classes.cell}>
+              <Typography>{props.character.characteristics.WS}</Typography>
+            </td>
+            <td className={classes.cell}>
+              <Typography>
+                {parseInt(props.character.characteristics.BS) +
+                  calcArmourTotal(
+                    props.character.armour[0]?.bowSkillPenalty,
+                    props.character.armour[1]?.bowSkillPenalty
+                  )}
+              </Typography>
+            </td>
+            <td className={classes.cell}>
+              <Typography>{props.character.characteristics.S}</Typography>
+            </td>
+            <td className={classes.cell}>
+              <Typography>
+                {parseInt(props.character.characteristics.T) +
+                  calcArmourTotal(
+                    props.character.armour[0]?.toughnessPenalty,
+                    props.character.armour[1]?.toughnessPenalty
+                  )}
+              </Typography>
+            </td>
+            <td className={classes.cell}>
+              <Typography>
+                {parseInt(props.character.characteristics.Sp) +
+                  calcArmourTotal(
+                    props.character.armour[0]?.speedPenalty,
+                    props.character.armour[1]?.speedPenalty
+                  )}
+              </Typography>
+            </td>
+            <td className={classes.cell}>
+              <Typography>{props.character.characteristics.Br}</Typography>
+            </td>
+            <td className={classes.cell}>
+              <Typography>{props.character.characteristics.Int}</Typography>
+            </td>
+            <td className={classes.cell}>
+              <Typography>{props.character.characteristics.W}</Typography>
+            </td>
+            <td className={classes.cell}>
+              <Typography>{props.character.characteristics.FP}</Typography>
             </td>
           </tr>
         </table>
@@ -120,10 +202,10 @@ function CharacterSheet(props) {
         <table className={classes.tableContainer}>
           <tr className={classes.cellTitle}>
             <td rowSpan="2" className={classes.cell}>
-              <Typography>Hand to Hand Combat</Typography>
+              <Typography>{t("character-sheet.hthc")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>Target WS</Typography>
+              <Typography>{t("character-sheet.targetws")}</Typography>
             </td>
             <td className={classes.cell}>
               <Typography>1</Typography>
@@ -164,43 +246,43 @@ function CharacterSheet(props) {
           </tr>
           <tr className={classes.cellData}>
             <td className={classes.cellTitle}>
-              <Typography>Hit Roll</Typography>
+              <Typography>{t("character-sheet.hr")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.hthCombat[0]}</Typography>
+              <Typography>{props.character.hthCombat[0]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.hthCombat[1]}</Typography>
+              <Typography>{props.character.hthCombat[1]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.hthCombat[2]}</Typography>
+              <Typography>{props.character.hthCombat[2]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.hthCombat[3]}</Typography>
+              <Typography>{props.character.hthCombat[3]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.hthCombat[4]}</Typography>
+              <Typography>{props.character.hthCombat[4]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.hthCombat[5]}</Typography>
+              <Typography>{props.character.hthCombat[5]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.hthCombat[6]}</Typography>
+              <Typography>{props.character.hthCombat[6]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.hthCombat[7]}</Typography>
+              <Typography>{props.character.hthCombat[7]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.hthCombat[8]}</Typography>
+              <Typography>{props.character.hthCombat[8]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.hthCombat[9]}</Typography>
+              <Typography>{props.character.hthCombat[9]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.hthCombat[10]}</Typography>
+              <Typography>{props.character.hthCombat[10]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.hthCombat[11]}</Typography>
+              <Typography>{props.character.hthCombat[11]}</Typography>
             </td>
           </tr>
         </table>
@@ -208,10 +290,10 @@ function CharacterSheet(props) {
         <table className={classes.tableContainer}>
           <tr className={classes.cellTitle}>
             <td rowSpan="2" className={classes.cell}>
-              <Typography>RANGED COMBAT</Typography>
+              <Typography>{t("character-sheet.rangedc")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>RANGE</Typography>
+              <Typography>{t("character-sheet.range")}</Typography>
             </td>
             <td className={classes.cell}>
               <Typography>1-3</Typography>
@@ -231,22 +313,22 @@ function CharacterSheet(props) {
           </tr>
           <tr className={classes.cellData}>
             <td className={classes.cellTitle}>
-              <Typography>Hit Roll</Typography>
+              <Typography>{t("character-sheet.hr")}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.rangedCombat[0]}</Typography>
+              <Typography>{props.character.rangedCombat[0]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.rangedCombat[1]}</Typography>
+              <Typography>{props.character.rangedCombat[1]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.rangedCombat[2]}</Typography>
+              <Typography>{props.character.rangedCombat[2]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.rangedCombat[3]}</Typography>
+              <Typography>{props.character.rangedCombat[3]}</Typography>
             </td>
             <td className={classes.cell}>
-              <Typography>{props.rangedCombat[4]}</Typography>
+              <Typography>{props.character.rangedCombat[4]}</Typography>
             </td>
           </tr>
         </table>
@@ -254,73 +336,73 @@ function CharacterSheet(props) {
         <table className={classes.tableContainer}>
           <tr className={classes.cellTitle}>
             <td rowSpan="4" className={classes.cellWpnArm}>
-              <Typography>WEAPONS</Typography>
+              <Typography>{t("character-sheet.weapons")}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
               <Typography></Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>RANGE</Typography>
+              <Typography>{t("character-sheet.range")}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>DAM DICE</Typography>
+              <Typography>{t("character-sheet.damdice")}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>FUMBLE</Typography>
+              <Typography>{t("character-sheet.fumble")}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>CRITICAL</Typography>
-            </td>
-          </tr>
-          <tr className={classes.cellData}>
-            <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[0]?.type}</Typography>
-            </td>
-            <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[0]?.range}</Typography>
-            </td>
-            <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[0]?.damDice}</Typography>
-            </td>
-            <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[0]?.fumble}</Typography>
-            </td>
-            <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[0]?.critical}</Typography>
+              <Typography>{t("character-sheet.crit")}</Typography>
             </td>
           </tr>
           <tr className={classes.cellData}>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[1]?.type}</Typography>
+              <Typography>{txtWeapon}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[1]?.range}</Typography>
+              <Typography>{props.character.weapons[0]?.range}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[1]?.damDice}</Typography>
+              <Typography>{props.character.weapons[0]?.damDice}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[1]?.fumble}</Typography>
+              <Typography>{props.character.weapons[0]?.fumble}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[1]?.critical}</Typography>
+              <Typography>{props.character.weapons[0]?.critical}</Typography>
             </td>
           </tr>
           <tr className={classes.cellData}>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[2]?.type}</Typography>
+              <Typography>{props.character.weapons[1]?.type}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[2]?.range}</Typography>
+              <Typography>{props.character.weapons[1]?.range}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[2]?.damDice}</Typography>
+              <Typography>{props.character.weapons[1]?.damDice}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[2]?.fumble}</Typography>
+              <Typography>{props.character.weapons[1]?.fumble}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.weapons[2]?.critical}</Typography>
+              <Typography>{props.character.weapons[1]?.critical}</Typography>
+            </td>
+          </tr>
+          <tr className={classes.cellData}>
+            <td className={classes.cellWpnArm}>
+              <Typography>{props.character.weapons[2]?.type}</Typography>
+            </td>
+            <td className={classes.cellWpnArm}>
+              <Typography>{props.character.weapons[2]?.range}</Typography>
+            </td>
+            <td className={classes.cellWpnArm}>
+              <Typography>{props.character.weapons[2]?.damDice}</Typography>
+            </td>
+            <td className={classes.cellWpnArm}>
+              <Typography>{props.character.weapons[2]?.fumble}</Typography>
+            </td>
+            <td className={classes.cellWpnArm}>
+              <Typography>{props.character.weapons[2]?.critical}</Typography>
             </td>
           </tr>
         </table>
@@ -328,47 +410,55 @@ function CharacterSheet(props) {
         <table className={classes.tableContainer}>
           <tr className={classes.cellTitle}>
             <td rowSpan="4" className={classes.cellWpnArm}>
-              <Typography>ARMOUR</Typography>
+              <Typography>{t("character-sheet.armour")}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
               <Typography></Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>BOW SKILL</Typography>
+              <Typography>{t("character-sheet.bstitle")}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>TOUGHNESS</Typography>
+              <Typography>{t("character-sheet.t")}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>SPEED</Typography>
-            </td>
-          </tr>
-          <tr className={classes.cellData}>
-            <td className={classes.cellWpnArm}>
-              <Typography>{props.armour[0]?.type}</Typography>
-            </td>
-            <td className={classes.cellWpnArm}>
-              <Typography>{props.armour[0]?.bowSkillPenalty}</Typography>
-            </td>
-            <td className={classes.cellWpnArm}>
-              <Typography>{props.armour[0]?.toughnessPenalty}</Typography>
-            </td>
-            <td className={classes.cellWpnArm}>
-              <Typography>{props.armour[0]?.speedPenalty}</Typography>
+              <Typography>{t("character-sheet.sp")}</Typography>
             </td>
           </tr>
           <tr className={classes.cellData}>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.armour[1]?.type}</Typography>
+              <Typography>{txtArmour}</Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.armour[1]?.bowSkillPenalty}</Typography>
+              <Typography>
+                {props.character.armour[0]?.bowSkillPenalty}
+              </Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.armour[1]?.toughnessPenalty}</Typography>
+              <Typography>
+                {props.character.armour[0]?.toughnessPenalty}
+              </Typography>
             </td>
             <td className={classes.cellWpnArm}>
-              <Typography>{props.armour[1]?.speedPenalty}</Typography>
+              <Typography>{props.character.armour[0]?.speedPenalty}</Typography>
+            </td>
+          </tr>
+          <tr className={classes.cellData}>
+            <td className={classes.cellWpnArm}>
+              <Typography>{props.character.armour[1]?.type}</Typography>
+            </td>
+            <td className={classes.cellWpnArm}>
+              <Typography>
+                {props.character.armour[1]?.bowSkillPenalty}
+              </Typography>
+            </td>
+            <td className={classes.cellWpnArm}>
+              <Typography>
+                {props.character.armour[1]?.toughnessPenalty}
+              </Typography>
+            </td>
+            <td className={classes.cellWpnArm}>
+              <Typography>{props.character.armour[1]?.speedPenalty}</Typography>
             </td>
           </tr>
           <tr className={classes.cellData}>
@@ -378,24 +468,24 @@ function CharacterSheet(props) {
             <td className={classes.cellWpnArm}>
               <Typography>
                 {calcArmourTotal(
-                  props.armour[0]?.bowSkillPenalty,
-                  props.armour[1]?.bowSkillPenalty
+                  props.character.armour[0]?.bowSkillPenalty,
+                  props.character.armour[1]?.bowSkillPenalty
                 )}
               </Typography>
             </td>
             <td className={classes.cellWpnArm}>
               <Typography>
                 {calcArmourTotal(
-                  props.armour[0]?.toughnessPenalty,
-                  props.armour[1]?.toughnessPenalty
+                  props.character.armour[0]?.toughnessPenalty,
+                  props.character.armour[1]?.toughnessPenalty
                 )}
               </Typography>
             </td>
             <td className={classes.cellWpnArm}>
               <Typography>
                 {calcArmourTotal(
-                  props.armour[0]?.speedPenalty,
-                  props.armour[1]?.speedPenalty
+                  props.character.armour[0]?.speedPenalty,
+                  props.character.armour[1]?.speedPenalty
                 )}
               </Typography>
             </td>
@@ -405,10 +495,10 @@ function CharacterSheet(props) {
         <table className={classes.tableContainer}>
           <tr className={classes.cellTitle}>
             <td className={classes.cell}>
-              <Typography>EQUIPMENT</Typography>
+              <Typography>{t("character-sheet.equip")}</Typography>
             </td>
             <td className={classes.cellEquip}>
-              <Typography>{formatEquip(props.equipment)}</Typography>
+              <Typography>{formatEquip(txtEquipment)}</Typography>
             </td>
           </tr>
         </table>

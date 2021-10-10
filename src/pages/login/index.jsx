@@ -4,6 +4,7 @@ import "./style.css";
 import { Typography, TextField, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   margin: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles({
 
 function Login() {
   const classes = useStyles();
-
+  const [t] = useTranslation("global");
   const history = useHistory();
 
   const handleSubmit = (e) => {
@@ -52,19 +53,19 @@ function Login() {
         <div className="login-right">
           <div className="form">
             <Typography variant="h4" color="secondary">
-              Inicia Sesión
+            {t("login.login")}
             </Typography>
             <form autoComplete="off" className="inputs" onSubmit={handleSubmit}>
               <TextField
                 name="email"
-                label="Correo electrónico"
+                label={t("login.email")}
                 color="secondary"
                 type="email"
                 className={classes.margin}
               />
               <TextField
                 name="pass"
-                label="Contraseña"
+                label={t("login.pass")}
                 color="secondary"
                 type="password"
                 className={classes.margin}
@@ -75,15 +76,15 @@ function Login() {
                 type="submit"
                 className={classes.margin}
               >
-                Iniciar Sesión
+                {t("login.submit")}
               </Button>
             </form>
             <div>
               <Link to="/register" className="nolink">
-                <Typography color="secondary">{`¿No tienes cuenta? Regístrate`}</Typography>
+                <Typography color="secondary">{t("login.noaccount")}</Typography>
               </Link>
               <Link to="/" className="nolink">
-                <Typography color="secondary">{`Volver a inicio`}</Typography>
+                <Typography color="secondary">{t("login.back")}</Typography>
               </Link>
             </div>
           </div>

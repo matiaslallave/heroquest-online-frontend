@@ -7,14 +7,11 @@ import Typography from "@material-ui/core/Typography";
 import { useStyles } from "./style";
 
 
-
 function StdCard(props) {
   const classes = useStyles();
 
-  const handleClick = props.handleClick;
-
   return (
-    <Card className={classes.cardContainer} onClick={handleClick}>
+    <Card className={classes.cardContainer} onClick={() => props.handleClick(props.character)}>
       <CardActionArea>
         <CardMedia
           className={classes.media}

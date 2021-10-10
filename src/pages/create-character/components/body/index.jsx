@@ -1,8 +1,8 @@
 import { useStyles } from "./style";
 import React, { useState } from "react";
-import Preset from "../preset";
-import Custom from "../custom";
-import Start from "../start";
+import Preset from "./preset";
+import Custom from "./custom";
+import Start from "./start";
 
 function Body() {
   const classes = useStyles();
@@ -27,17 +27,14 @@ function Body() {
   return (
     <React.Fragment>
       {preset ? (
-        <div className={classes.bodyContainer}>
-          <Preset handleClickBack={handleClickBack}></Preset>
-        </div>
+        <Preset handleClickBack={handleClickBack}></Preset>
       ) : custom ? (
-        <div className={classes.bodyContainer}>
-          <Custom handleClickBack={handleClickBack}></Custom>
-        </div>
+        <Custom handleClickBack={handleClickBack}></Custom>
       ) : (
-        <div className={classes.bodyContainer}>
-          <Start handleClickPreset={handleClickPreset} handleClickCustom={handleClickCustom}></Start>
-        </div>
+        <Start
+          handleClickPreset={handleClickPreset}
+          handleClickCustom={handleClickCustom}
+        ></Start>
       )}
     </React.Fragment>
   );
